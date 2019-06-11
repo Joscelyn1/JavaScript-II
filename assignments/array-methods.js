@@ -64,13 +64,13 @@ console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
-let allCaps = [];
+
 
 function nameToUpperCase(person) {
-    person.first_name = person.first_name.toUpperCase();
+    return person.first_name.toUpperCase();
 }
 
-allCaps = runners.map(nameToUpperCase);
+const allCaps = runners.map(nameToUpperCase);
 
 console.log(allCaps); 
 
@@ -98,14 +98,14 @@ console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-let ticketPriceTotal = [];
-
+const ticketPriceTotal = [];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
 runners.forEach(function(person) {
     ticketPriceTotal.push(person.donation);
 })
 
 
-console.log(ticketPriceTotal);
+console.log(ticketPriceTotal.reduce(reducer));
 
 
 
@@ -116,7 +116,33 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// make a list of donors who contributed at least $100, so they can be given a gift
+
+const bigDonors = runners.filter(person => person.donation >= 100);
+
+console.log(bigDonors);
+
 
 // Problem 2
+// make a list of everyone's email address, so they can be added to a mailing group
+
+const emails = [];
+
+runners.forEach(function(person) {
+    emails.push(person.email);
+})
+
+console.log(emails);
 
 // Problem 3
+// all of the runners got hired by lambda. change all of the company names to "Lambda"
+
+
+function hiredByLambda(person) {
+    person.company = 'Lambda';
+    return person;
+}
+
+const lambdaEmployees = runners.map(hiredByLambda);
+
+console.log(lambdaEmployees); 
