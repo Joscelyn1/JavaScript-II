@@ -2,6 +2,28 @@
 // Write a simple closure of your own creation.  Keep it simple!
 
 
+function minusMaker(minusNumber) {
+  let result;
+  function minus(firstNumber) {
+
+    return result = firstNumber - minusNumber;
+  }
+
+  return minus;
+
+}
+
+const minus5 = minusMaker(5);
+
+console.log(minus5(7));
+console.log(minus5(59));
+
+
+
+
+
+
+
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 
@@ -17,5 +39,4 @@ const counter = () => {
 const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
-  // `decrement` should decrement the counter variable and return it.
 };
