@@ -81,7 +81,7 @@ contains('bird', pets, function (boolean) {
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) { /* got help from https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array */
-  cb(uniqueArray = array.filter(function (item, pos, self) {
+  cb(uniqueArray = array.filter(function(item, pos, self) {
     return self.indexOf(item) === pos;
   }))
 }

@@ -3,10 +3,12 @@
 
 
 function minusMaker(minusNumber) {
-  let result;
+
+  
   function minus(firstNumber) {
 
-    return result = firstNumber - minusNumber;
+    return firstNumber - minusNumber;
+
   }
 
   return minus;
@@ -37,11 +39,31 @@ function counter() {
   return add1;
 };
 const newCounter = counter();
+
+
 console.log(newCounter()); // 1
 console.log(newCounter()); // 2
 
+
+
+
 // ==== Challenge 3: Create a counter function with an object that can increment and decrement ====
-const counterFactory = () => {
-  // Return an object that has two methods called `increment` and `decrement`.
-  // `increment` should increment a counter variable in closure scope and return it.
+const counterFactory = (howMuch) => {
+  var startNumber = 0;
+  return ({
+    increment: function() {
+      return startNumber+= howMuch;
+    },
+
+    decrement: function() {
+      return startNumber-= howMuch;
+    }
+  })
+
 };
+
+const adderSubtracter = counterFactory( 7);
+const add7 = adderSubtracter.increment;
+console.log(add7());
+
+
